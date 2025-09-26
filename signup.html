@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription - Adopti Dz</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffbea;
+      margin: 0;
+      padding: 0;
+    }
+    a{text-decoration:none;color:inherit;}
+    header{
+      background:#fff;
+      padding:15px 8%;
+      display:flex;align-items:center;justify-content:space-between;
+      box-shadow:0 2px 5px rgba(0,0,0,0.05);
+      position:sticky;top:0;z-index:1000;
+    }
+    .logo{display:flex;align-items:center;gap:10px;}
+    .logo img{width:70px;height:70px;border-radius:50%;}
+    .logo span{font-weight:700;font-size:1.5rem;color:#ffcc59;}
+    nav ul{display:flex;list-style:none;gap:20px;}
+    nav ul li a{font-weight:500;transition:.3s;}
+    nav ul li a:hover{color:#E6B800;}
+    .menu-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+    .menu-toggle span{width:25px;height:3px;background:#333;border-radius:2px;}
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+      padding: 20px;
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .form-box h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-box input:focus {
+      border-color: #f6c90e;
+      box-shadow: 0 0 5px #f6c90e55;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #f6c90e;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffdb4d;
+    }
+
+    .form-box p {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .form-box p a {
+      color: #f6c90e;
+      font-weight: bold;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px){
+      nav ul{display:none;flex-direction:column;position:absolute;top:65px;right:8%;background:#fff;border-radius:10px;padding:15px;box-shadow:0 5px 15px rgba(0,0,0,.1);}
+      nav ul.active{display:flex;}
+      .menu-toggle{display:flex;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="PetDz Logo">
+    <span>Adopti Dz</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.php">Accueil</a></li>
+      <li><a href="adoption.php">Adoption</a></li>
+      <li><a href="market.php">Boutique</a></li>
+
+      <?php if (isset($_SESSION['user_id'])): ?>
+        <!-- ✅ يظهر فقط للمستخدم المسجل -->
+        <li><a href="dashboard.php">Mon éspace</a></li>
+        <li><a href="logout.php">Déconnexion</a></li>
+      <?php else: ?>
+        <!-- ❌ يظهر فقط للمستخدم الغير مسجل -->
+        <li><a href="login.html">Connexion</a></li>
+      <?php endif; ?>
+
+    </ul>
+  </nav>
+  <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- SIGNUP FORM -->
+<div class="container">
+  <div class="form-box">
+    <h2>Créer un compte</h2>
+    <form action="signup.php" method="POST">
+      <input type="text" name="fullname" placeholder="Nom complet" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Mot de passe" required>
+      <input type="password" name="confirm_password" placeholder="Confirmer mot de passe" required>
+      <button class="btn" type="submit">S'inscrire</button>
+    </form>
+    <p>Déjà inscrit ? <a href="login.html">Se connecter</a></p>
+  </div>
+</div>
+
+</body>
+</html>
+
