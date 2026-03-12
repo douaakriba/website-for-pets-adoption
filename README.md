@@ -1,13 +1,18 @@
-Website Preview
-Home Page
+## Website Preview
+# Home Page
 This is the main page of the website.
 
-![Home Page](Screenshot (252).png) 
+![Home Page](home.png) 
 
-![Home Page](Screenshot (253).png) 
+![Home Page](home2.png) 
 
-![Home Page](Screenshot (254).png)
+![Home Page](home3.png)
 
-![Home Page](Screenshot (255).png)
+![Home Page](home4.png)
 
-![Home Page](Screenshot (256).png)
+![Home Page](home5.png)
+
+# dashboard 
+![dashboard](dashboard.png)
+# login
+![login](login.png)
